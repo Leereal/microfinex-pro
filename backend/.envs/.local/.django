@@ -1,0 +1,14 @@
+CELERY_BROKER=redis://redis:6379/0
+
+DOMAIN=localhost:8080
+EMAIL_PORT=1025
+CELERY_FLOWER_USER=admin 
+CELERY_FLOWER_PASSWORD=Pass123456
+SIGNING_KEY=Q8nR0cpq9RRwl888mzsJM0SEOuGS4lm-b-jmvFeJ9rM7CUu-KVQ
+
+
+#Email Settings
+EMAIL_HOST=mail.privateemail.com
+EMAIL_PORT=465
+EMAIL_HOST_USER=support@microfinex.online
+EMAIL_HOST_PASSWORD=Mutabvuri$8

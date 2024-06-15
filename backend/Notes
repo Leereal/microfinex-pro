@@ -1,0 +1,29 @@
+Reports:
+
+1. Get transactions or activities done when the user logged in with a certain device. 
+    - for example whenuser was home get all transactions done
+    - you can also filter by date and time
+    - you can also filter by device
+    - you can also filter by location
+    - you can also filter by activity
+    - you can also filter by user
+    - you can also filter by branch
+    - you can also filter by loans, applications, payments, etc
+
+2. Get all transactions done by a user
+    - you can also filter by date and time    
+    - you can also filter by branch
+    - you can also filter by loans, applications, payments, etc
+
+3. Get daily cash summary
+    - get all cash transactions done in a day
+    - you can also filter by date and time
+    - you can also filter by branch
+    - filter by transaction type, payments, disbursements, refunds, etc
+    
+4. Get cash disbursement summary
+    - get all cash disbursements done in a day
+    - you can also filter by date and time
+    - you can also filter by branch
+
+

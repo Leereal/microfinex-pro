@@ -1,0 +1,17 @@
+# POSTGRES_HOST=postgres
+# POSTGRES_PORT=5432
+# POSTGRES_DB=microfinex-dev
+# POSTGRES_USER=leereal
+# POSTGRES_PASSWORD=Pass123456
+# DATABASE_URL=postgres://leereal:Pass123456@postgres:5432/microfinex-dev
+
+
+#Hosted on NEON using leereal08@gmail.com
+DATABASE_URL=postgresql://microfinex_owner:yp4veLrNI1PM@ep-black-heart-a5rirm0e.us-east-2.aws.neon.tech/microfinex?sslmode=require
+POSTGRES_HOST='ep-black-heart-a5rirm0e.us-east-2.aws.neon.tech'
+POSTGRES_PORT=5432
+POSTGRES_DB='microfinex'
+POSTGRES_USER='microfinex_owner'
+POSTGRES_PASSWORD='yp4veLrNI1PM'
+
+

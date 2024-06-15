@@ -1,0 +1,10 @@
+
+#Hosted on NEON using leereal08@gmail.com
+DATABASE_URL=postgresql://microfinex_owner:yp4veLrNI1PM@ep-black-heart-a5rirm0e.us-east-2.aws.neon.tech/microfinex?sslmode=require
+
+#Not that we also use the below variable in docker/production/entrypoint file
+POSTGRES_HOST='ep-black-heart-a5rirm0e.us-east-2.aws.neon.tech'
+POSTGRES_PORT=5432
+POSTGRES_DB='microfinex'
+POSTGRES_USER='microfinex_owner'
+POSTGRES_PASSWORD='yp4veLrNI1PM'

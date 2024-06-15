@@ -1,0 +1,10 @@
+-r base.txt
+
+psycopg2-binary
+
+flake8
+black
+isort
+watchfiles
+pytest-factoryboy
+Faker
