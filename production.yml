@@ -11,7 +11,7 @@ services:
   #         - reverseproxy_nw
   api: &api
     build:
-      context: .
+      context: ./backend
       dockerfile: ./docker/production/django/Dockerfile
     command: /start
     image: microfinex-api
@@ -19,8 +19,8 @@ services:
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     env_file:
-      - ./.envs/.production/.django
-      - ./.envs/.production/.postgres
+      - ./backend/.envs/.production/.django
+      - ./backend/.envs/.production/.postgres
     depends_on:
       # - postgres //we only use this if we are hosting our own db
       - redis
@@ -28,18 +28,20 @@ services:
     networks:
       - reverseproxy_nw
 
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: ../docker/production/django/Dockerfile
-  #   restart: on-failure
-  #   ports:
-  #     - "3000:3000"
-  #   volumes:
-  #     - ./frontend:/app
-  #     - /app/node_modules
-  #   networks:
-  #     - reverseproxy_nw
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ./docker/production/Dockerfile
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    env_file:
+      - ./frontend/.env
+    networks:
+      - reverseproxy_nw
 
   # postgres: //we only use this if we are hosting our own db
   #   build:

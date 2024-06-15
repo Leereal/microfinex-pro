@@ -9,6 +9,8 @@ import { Mutex } from "async-mutex";
 import { signOut } from "next-auth/react";
 
 const mutex = new Mutex();
+console.log("NEXT_PUBLIC_API_URL : ", process.env.NEXT_PUBLIC_API_URL);
+
 const baseQuery = fetchBaseQuery({
   // TODO make sure this connects to the right API when using NGINX or other reverse proxy
   baseUrl: `${process.env.NEXT_PUBLIC_API_URL}`,
