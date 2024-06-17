@@ -1,6 +1,7 @@
 version: "3.9"
 
 services:
+  # Elasticsearch service (commented out)
   # es:
   #   image: elasticsearch:7.17.9
   #   environment:
@@ -9,20 +10,20 @@ services:
   #     - "9200:9200"
   #   networks:
   #     - microfinex-api
+
   api:
     build:
-      context: .
+      context: ./backend
       dockerfile: ./docker/local/django/Dockerfile
-    # command: /start
     volumes:
-      - .:/app:z
+      - ./backend:/app:z
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     expose:
       - "8000"
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./backend/.envs/.local/.django
+      - ./backend/.envs/.local/.postgres
     depends_on:
       # - postgres
       - mailhog
@@ -32,19 +33,23 @@ services:
     networks:
       - microfinex-api
 
+  # Frontend service (commented out)
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile.dev
+      dockerfile: ./docker/local/Dockerfile
     restart: on-failure
     ports:
       - "3000:3000"
     volumes:
       - ./frontend:/app
       - /app/node_modules
+    env_file:
+      - ./frontend/.env
     networks:
       - microfinex-api
 
+  # PostgreSQL service (commented out)
   # postgres:
   #   build:
   #     context: .
@@ -72,14 +77,14 @@ services:
 
   celery_worker:
     build:
-      context: .
+      context: ./backend
       dockerfile: ./docker/local/django/Dockerfile
     command: /start-celeryworker
     volumes:
-      - .:/app
+      - ./backend:/app
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./backend/.envs/.local/.django
+      - ./backend/.envs/.local/.postgres
     depends_on:
       - redis
       # - postgres
@@ -89,14 +94,14 @@ services:
 
   flower:
     build:
-      context: .
+      context: ./backend
       dockerfile: ./docker/local/django/Dockerfile
     command: /start-flower
     volumes:
       - flower_data:/data
     env_file:
-      - ./.envs/.local/.django
-      - ./.envs/.local/.postgres
+      - ./backend/.envs/.local/.django
+      - ./backend/.envs/.local/.postgres
     ports:
       - "5555:5555"
     depends_on:
@@ -113,7 +118,7 @@ services:
       - static_volume:/app/staticfiles
       - media_volume:/app/mediafiles
     build:
-      context: ./docker/local/nginx
+      context: ./backend/docker/local/nginx
       dockerfile: Dockerfile
     ports:
       - "8080:80" # 8080 is the host which we can access in the browser locally mapping to 80 in the container
