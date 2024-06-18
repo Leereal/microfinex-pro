@@ -274,7 +274,7 @@ LOGGING = {
    }
 }
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://127.0.0.1:3000"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://127.0.0.1:3000","https://www.microfinex.online","https://microfinex.online"]
 CORS_ALLOW_CREDENTIALS = True
 ACCOUNT_ADAPTER = "apps.users.auth_emails.CustomAccountAdapter"
 

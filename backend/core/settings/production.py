@@ -4,11 +4,11 @@ from .base import env
 ADMINS = [("Liberty Mutabvuri","leereal08@ymail.com")]
 
 # TODO add domain names of the production server
-CSRF_TRUSTED_ORIGINS = ["https://system.microfinex.online"]
+CSRF_TRUSTED_ORIGINS = ["microfinex.online"]
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["system.microfinex.online"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["microfinex.online"])
 
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
