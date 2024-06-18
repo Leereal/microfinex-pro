@@ -4,7 +4,7 @@ from .base import env
 ADMINS = [("Liberty Mutabvuri","leereal08@ymail.com")]
 
 # TODO add domain names of the production server
-CSRF_TRUSTED_ORIGINS = ["microfinex.online"]
+CSRF_TRUSTED_ORIGINS = ["https://www.microfinex.online"]
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
