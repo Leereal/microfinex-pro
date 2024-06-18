@@ -8,7 +8,7 @@ CSRF_TRUSTED_ORIGINS = ["https://www.microfinex.online"]
 
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["microfinex.online"])
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["api.microfinex.online"])
 
 ADMIN_URL = env("DJANGO_ADMIN_URL")
 
