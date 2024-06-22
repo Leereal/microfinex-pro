@@ -6,7 +6,7 @@ then
   exit 0
 fi
 
-git archive --format tar --output ./project.tar dev
+git archive --format tar --output ./project.tar main
 
 echo 'Uploading project.......:-)...Be Patient!'
 rsync ./project.tar root@$DIGITAL_OCEAN_IP_ADDRESS:/tmp/project.tar
