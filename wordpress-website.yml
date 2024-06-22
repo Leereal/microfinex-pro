@@ -1,0 +1,30 @@
+version: "3"
+services:
+  mysql_db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mutabvuri$8
+      MYSQL_DATABASE: microfinex
+      MYSQL_USER: leereal
+      MYSQL_PASSWORD: mutabvuri$8
+    volumes:
+      - mysql:/var/lib/mysql
+
+  wordpress:
+    depen
+      - mysql_db
+    image: wordpress:latest
+    restart: always
+    ports:
+      - "4000:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql_db:3306
+      WORDPRESS_DB_USER: leereal
+      WORDPRESS_DB_PASSWORD: mutabvuri$8
+      WORDPRESS_DB_NAME: microfinex
+    volumes:
+      - ./:/var/www/html
+
+volumes:
+  mysql: {}
