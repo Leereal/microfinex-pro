@@ -228,6 +228,7 @@ REST_AUTH = {
     "USE_JWT":True,
     "JWT_AUTH_COOKIE": "microfinex-acces-token",
     "JWT_AUTH_REFRESH_COOKIE": "microfinex-refresh-token",
+    "JWT_AUTH_SAMESITE": "None",  # Ensure SameSite=None for cross-site requests
     "REGISTER_SERIALIZER": "apps.users.serializers.CustomRegisterSerializer"
 }
 
